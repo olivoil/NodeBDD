@@ -56,4 +56,6 @@ app.run = function(config){
     config.logger.log('info', "Express server listening on port %d in %s mode", app.address().port, app.settings.env);
     config.logger.log('debug', app.settings);
   });
+
+  return app;
 };
