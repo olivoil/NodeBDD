@@ -1,0 +1,21 @@
+{
+    "name": "application-name"
+  , "version": "0.0.1"
+  , "private": true
+  , "dependencies": {
+      "express"        : "2.5.1"
+    , "connect-assets" : "2.1.5"
+    , "jade"           : ">= 0.0.1"
+    , "stylus"         : ">= 0.19.7"
+    , "nib"            : "0.3.1"
+  },
+  "devDependencies": {
+      "mocha"  : "*"
+    , "should" : "*"
+    , "sinon"  : "*"
+    , "zombie" : "*"
+  },
+  "scripts": {
+    "test":"mocha"
+  }
+}
