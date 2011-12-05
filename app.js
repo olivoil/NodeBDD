@@ -9,7 +9,6 @@ var express = require('express')
   // , stylus  = require('stylus')
   // , nib     = require('nib')
   , _       = require('underscore')._
-  , winston = require('winston')
 
 
 // compile = function(str, path){
@@ -26,14 +25,8 @@ app.run = function(config){
   var config = _.extend({
       port: 3000
     , home: __dirname 
+    , logger: console
   }, config);
-
-  app.logger = new (winston.Logger)({
-    transports: [
-        new (winston.transports.Console)()
-      , new (winston.transports.File)({filename: "./log/" + app.settings.env + ".log"});
-    ]
-  });
 
   // Configuration
 
@@ -54,13 +47,13 @@ app.run = function(config){
 
   app.configure('production', function(){
     app.use(express.errorHandler()); 
-    app.logger.remove(winston.transports.Console);
   });
 
   // Routes
   app.get('/', routes.index);
 
   app.listen(config.port, function(){
-    app.logger.log('info', "Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+    config.logger.log('info', "Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+    config.logger.log('debug', app.settings);
   });
 };
