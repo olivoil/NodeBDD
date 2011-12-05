@@ -8,6 +8,8 @@
     , "jade"           : ">= 0.0.1"
     , "stylus"         : ">= 0.19.7"
     , "nib"            : "0.3.1"
+    , "underscore"     : ""
+    , "winston"        : ""
   },
   "devDependencies": {
       "mocha"  : "*"
