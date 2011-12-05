@@ -11,7 +11,10 @@ var express = require('express')
   , _       = require('underscore')._
   , winston = require('winston')
 
-var compile = function(str, path){
+var app
+  , compile;
+
+compile = function(str, path){
   stylus(str)
     .set('filename', path)
     .set('compress', true)
@@ -19,7 +22,7 @@ var compile = function(str, path){
     .import('nib')
 }
 
-var app = module.exports = express.createServer();
+app = module.exports = express.createServer();
 
 app.run = function(config){
   var config = _.extend({
