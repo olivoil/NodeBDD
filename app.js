@@ -6,23 +6,21 @@
 var express = require('express')
   , routes  = require('./routes')
   , assets  = require('connect-assets')
-  , stylus  = require('stylus')
-  , nib     = require('nib')
+  // , stylus  = require('stylus')
+  // , nib     = require('nib')
   , _       = require('underscore')._
   , winston = require('winston')
 
-var app
-  , compile;
 
-compile = function(str, path){
-  stylus(str)
-    .set('filename', path)
-    .set('compress', true)
-    .use(nib())
-    .import('nib')
-}
+// compile = function(str, path){
+//   stylus(str)
+//     .set('filename', path)
+//     .set('compress', true)
+//     .use(nib())
+//     .import('nib')
+// }
 
-app = module.exports = express.createServer();
+var app = module.exports = express.createServer();
 
 app.run = function(config){
   var config = _.extend({
@@ -45,8 +43,8 @@ app.run = function(config){
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.use(assets({src: "#{config.home}/assets"}));
-    app.use(stylus.middleware({src: config.home, compile: compile}));
     app.use(app.router);
+    app.use(assets({src: config.home + "/assets"}));
     app.use(express.static(__dirname + '/public'));
   });
 
