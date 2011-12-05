@@ -1,9 +1,9 @@
-var app = require('./app')
+var app = require('./app/app')
   , winston = require('winston')
   , logger;
 
 // Logger
-exporst.logger = logger = new (winston.Logger)({
+exports.logger = logger = new (winston.Logger)({
   transports: [
     new (winston.transports.File)({filename: "./log/" + (NODE_ENV || 'development') + ".log"})
   ]
