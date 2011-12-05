@@ -4,32 +4,62 @@
  */
 
 var express = require('express')
-  , routes = require('./routes')
+  , routes  = require('./routes')
+  , assets  = require('connect-assets')
+  , stylus  = require('stylus')
+  , nib     = require('nib')
+  , _       = require('underscore')._
+  , winston = require('winston')
+
+var compile = function(str, path){
+  stylus(str)
+    .set('filename', path)
+    .set('compress', true)
+    .use(nib())
+    .import('nib')
+}
 
 var app = module.exports = express.createServer();
 
-// Configuration
+app.run = function(config){
+  var config = _.extend({
+      port: 3000
+    , home: __dirname 
+  }, config);
 
-app.configure(function(){
-  app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
-  app.use(app.router);
-  app.use(express.static(__dirname + '/public'));
-});
+  app.logger = new (winston.Logger)({
+    transports: [
+        new (winston.transports.Console)()
+      , new (winston.transports.File)({filename: "./log/" + app.settings.env + ".log"});
+    ]
+  });
 
-app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
-});
+  // Configuration
 
-app.configure('production', function(){
-  app.use(express.errorHandler()); 
-});
+  app.configure(function(){
+    app.set('views', __dirname + '/views');
+    app.set('view engine', 'jade');
+    app.use(express.bodyParser());
+    app.use(express.methodOverride());
+    app.use(assets({src: "#{config.home}/assets"}));
+    app.use(stylus.middleware({src: config.home, compile: compile}));
+    app.use(app.router);
+    app.use(express.static(__dirname + '/public'));
+  });
 
-// Routes
+  app.configure('development', function(){
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true })); 
+  });
 
-app.get('/', routes.index);
+  app.configure('production', function(){
+    app.use(express.errorHandler()); 
+    app.logger.remove(winston.transports.Console);
+  });
 
-app.listen(3000);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+  // Routes
+  app.get('/', routes.index);
+
+  app.listen(config.port, function(){
+    app.logger.log('info', "Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+  });
+};
