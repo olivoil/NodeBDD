@@ -33,4 +33,6 @@ It uses [cucumber.js](https://github.com/cucumber/cucumber-js) for integration t
 + Example unit tests
 + Figure out how to make should.js work in the browser, then replace jasmine by mocha
 + Setup performance tests
++ Setup test coverage reporting
++ Browser Interface for all test reporting
 
