@@ -1,8 +1,27 @@
-### Example app showing how to test an express application
+## Example app showing how to setup a test environment for an express.js application
 
-TODO:
-1. Add cucumber.js for integration testing
-2. Update Makefile to run tests
+### Install
 
-ALSO:
-+ Add a browser interface where you can check: integration tests, unit tests, client tests, performance tests, test coverage report
+``` shell
+    $ git clone git://github.com/olivoil/NodeBDD.git
+    $ cd NodeBDD
+    $ npm install
+```
+
+### Run cucumber feature
+
+``` shell
+    $ make cucumber
+```
+
+### Run server-side unit tests
+
+``` shell
+    $ make test-unit-server
+```
+
+### Run client-side unit tests
+
+``` shell
+    $ make test-unit-client
+```
