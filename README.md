@@ -1,5 +1,7 @@
 ## Example app showing how to setup a test environment for an express.js application
 
+It uses [cucumber.js](https://github.com/cucumber/cucumber-js) for integration testing, [mocha](http://visionmedia.github.com/mocha/) with [should.js](https://github.com/visionmedia/should.js) for unit testing on the server side, and [jasmine](http://pivotal.github.com/jasmine/) for unit testing on the client side. 
+
 ### Install
 
 ``` shell
@@ -25,3 +27,10 @@
 ``` shell
     $ make test-unit-client
 ```
+
+### TODO
+
++ Example unit tests
++ Figure out how to make should.js work in the browser, then replace jasmine by mocha
++ Setup performance tests
+
