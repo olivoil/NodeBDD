@@ -1,5 +1,5 @@
 MOCHA_REPORTER = spec
-UNIT_TESTS = $(shell find test/unit/server -name "*.test.js")
+UNIT_TESTS = $(shell find test/app -name "*.test.js")
 
 # vim => :map ,f :w\|!clear && make cucumber<cr>
 cucumber:
