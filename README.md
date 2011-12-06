@@ -7,7 +7,7 @@ It uses [cucumber.js](https://github.com/cucumber/cucumber-js) for integration t
 ``` shell
     $ git clone git://github.com/olivoil/NodeBDD.git
     $ cd NodeBDD
-    $ npm install
+    $ npm install --dev
 ```
 
 The `Makefile` defines commands to run the different kinds of tests:
