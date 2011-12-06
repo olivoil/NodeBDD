@@ -4,8 +4,8 @@ INTEGRATION_TESTS = $(shell find test/integration/ -name "*.test.js")
 
 # vim => :map ,f :w\|!clear && make cucumber<cr>
 cucumber:
-	@NODE_ENV=test ./node_modules/.bin/cucumber.js \
-		# -r test/features
+	@NODE_ENV=test ./node_modules/.bin/cucumber.js test/features \
+		-r test/features/step_definitions
 
 # vim => :map ,i :w\|!clear && make test-integration<cr>
 test-integration:

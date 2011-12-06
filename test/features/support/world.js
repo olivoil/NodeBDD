@@ -1,13 +1,12 @@
 var zombie = require('zombie')
   , HTML5  = require('html5')
-  , assert = require('assert')
-  , server = require('../../server');
+  , server = require('../../../server');
 
-module.exports = function(){
+var World = function(){
   this.browser = new zombie.Browser({runScripts:true, debug:false, htmlParser: HTML5});
 
   this.page = function(path){
-   return "http://localhost:" + server.app.settings.port + path
+   return "http://localhost:" + server.app.address().port + path
   };
 
   this.visit = function(path, callback){
@@ -16,3 +15,5 @@ module.exports = function(){
     });
   };
 };
+
+module.exports = new World();
