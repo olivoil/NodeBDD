@@ -30,7 +30,7 @@ if (process.env.NODE_ENV == 'production' || process.env.NODE_ENV == 'test'){
 // run HTTP Server
 exports.app = app.run({
     port: parseInt(process.argv[2] || 3000, 10)
-  , home: process.cwd()
+  , home: process.cwd() + '/app'
   , logger: logger
 });
 
