@@ -22,4 +22,4 @@ test-unit-server:
 test-unit-client:
 	open test/unit/client/SpecRunner.html
 
-.PHONY: cucumber test-integration test-performance test-unit-server test-unit-client
+.PHONY: cucumber test-performance test-unit-server test-unit-client
