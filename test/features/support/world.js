@@ -1,8 +1,9 @@
 var zombie = require('zombie')
   , HTML5  = require('html5')
+  , should = require('should')
   , server = require('../../../server');
 
-var World = function(){
+var World = module.exports = function(){
   this.browser = new zombie.Browser({runScripts:true, debug:false, htmlParser: HTML5});
 
   this.page = function(path){
@@ -15,5 +16,3 @@ var World = function(){
     });
   };
 };
-
-module.exports = new World();

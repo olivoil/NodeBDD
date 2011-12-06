@@ -1,16 +1,12 @@
-var world = require('../support/world')
-  , browser = world.browser
-  , should = require('should');
+var sharedSteps = module.exports = function(){
+  this.World = require('../support/world');
 
-var sharedSteps = function(){
-  this.Given(/^I am on the home page$/, function(callback) {
-    world.visit('/', callback);
+  this.Given(/^I am on the home page$/, function(next) {
+    this.visit('/', next);
   });
 
-  this.Then(/^I should see "([^"]*)"$/, function(text, callback) {
-    world.browser.text('body').should.include.string(text);
-    callback();
+  this.Then(/^I should see "([^"]*)"$/, function(text, next) {
+    this.browser.text('body').should.include.string(text);
+    next();
   });
 }
-
-module.exports = sharedSteps;
