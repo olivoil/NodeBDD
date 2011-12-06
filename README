@@ -1,0 +1,8 @@
+### Example app showing how to test an express application
+
+TODO:
+1. Add cucumber.js for integration testing
+2. Update Makefile to run tests
+
+ALSO:
++ Add a browser interface where you can check: integration tests, unit tests, client tests, performance tests, test coverage report

@@ -40,8 +40,7 @@ app.run = function(config){
 
   // Listen
   app.listen(config.port, function(){
-    config.logger.log('http', "Express server listening on port %d in %s mode", app.address().port, app.settings.env);
-    config.logger.log('debug', app.settings);
+    config.logger.http("Express server listening on port " + app.address().port + " in " + app.settings.env + " mode");
   });
 
   return app;

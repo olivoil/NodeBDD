@@ -4,13 +4,27 @@ var app = require('./app/app')
 
 // Logger
 exports.logger = logger = new (winston.Logger)({
+  levels: {
+    http   : 0
+  },
+  colors: {
+    http: 'blue'
+  },
   transports: [
-    new (winston.transports.File)({filename: "./log/" + (NODE_ENV || 'development') + ".log"})
+      new winston.transports.Console({
+          level: 'http'
+        , colorize: true
+        , timestamp: true
+      })
+    , new (winston.transports.File)({
+          filename: "./log/" + (process.env.NODE_ENV || 'development') + ".log"
+        , level: 'http'
+    })
   ]
 });
 
-if (NODE_ENV == 'development' || NODE_ENV == 'test'){
-  logger.add( new winston.transports.Console() );
+if (process.env.NODE_ENV == 'production'){
+  logger.remove(winston.transports.Console);
 };
 
 // run HTTP Server
@@ -19,3 +33,5 @@ exports.app = app.run({
   , home: process.cwd()
   , logger: logger
 });
+
+// configure socket.io, background jobs, and other concerns...
