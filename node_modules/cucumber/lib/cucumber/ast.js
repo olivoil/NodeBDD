@@ -1,0 +1,9 @@
+var Ast        = {};
+Ast.Background = require('./ast/background');
+Ast.DataTable  = require('./ast/data_table');
+Ast.DocString  = require('./ast/doc_string');
+Ast.Feature    = require('./ast/feature');
+Ast.Features   = require('./ast/features');
+Ast.Scenario   = require('./ast/scenario');
+Ast.Step       = require('./ast/step');
+module.exports = Ast;

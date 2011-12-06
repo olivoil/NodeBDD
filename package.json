@@ -11,11 +11,13 @@
     , "underscore"     : ""
     , "winston"        : ""
   },
-  "devDependencies": {
-      "mocha"  : "*"
-    , "should" : "*"
-    , "sinon"  : "*"
-    , "zombie" : "*"
+  "devDependencies" : {
+      "mocha"       : "*"
+    , "should"      : "*"
+    , "sinon"       : "*"
+    , "zombie"      : "*"
+    , "cucumber"    : "*"
+    , "html5"       : "*"
   },
   "scripts": {
     "test":"mocha"
