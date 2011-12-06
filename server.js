@@ -5,20 +5,22 @@ var app = require('./app/app')
 // Logger
 exports.logger = logger = new (winston.Logger)({
   levels: {
-    http   : 0
+      debug : 0
+    , http  : 1
   },
-  colors: {
-    http: 'blue'
+  colors    : {
+      debug : 'red'
+    , http  : 'blue'
   },
   transports: [
       new winston.transports.Console({
-          level: 'http'
-        , colorize: true
-        , timestamp: true
+          level     : 'debug'
+        , colorize  : true
+        , timestamp : true
       })
     , new (winston.transports.File)({
-          filename: "./log/" + (process.env.NODE_ENV || 'development') + ".log"
-        , level: 'http'
+          filename : "./log/" + (process.env.NODE_ENV || 'development') + ".log"
+        , level    : 'http'
     })
   ]
 });
@@ -34,4 +36,4 @@ exports.app = app.run({
   , logger: logger
 });
 
-// configure socket.io, background jobs, and other concerns...
+// configure socket.io, background jobs, and other concerns here...

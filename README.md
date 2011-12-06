@@ -10,6 +10,8 @@ It uses [cucumber.js](https://github.com/cucumber/cucumber-js) for integration t
     $ npm install
 ```
 
+The `Makefile` defines commands to run the different kinds of tests:
+
 ### Run cucumber feature
 
 ``` shell

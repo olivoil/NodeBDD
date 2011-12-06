@@ -13,8 +13,9 @@ spec:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--require should \
 		--require sinon \
+		--globals prop \
 		--reporter $(MOCHA_REPORTER) \
-		--slow 20 \
+		--slow 50 \
 		--growl \
 		$(UNIT_TESTS)
 
