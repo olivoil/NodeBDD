@@ -8,8 +8,8 @@ cucumber:
 
 test-performance:
 
-# vim => :map ,t :w\|!clear && make test-unit-server<cr>
-test-unit-server:
+# vim => :map ,t :w\|!clear && make spec<cr>
+spec:
 	@NODE_ENV=test ./node_modules/.bin/mocha \
 		--require should \
 		--require sinon \
@@ -18,8 +18,8 @@ test-unit-server:
 		--growl \
 		$(UNIT_TESTS)
 
-# vim => :map ,c :w\|!clear && make test-unit-client<cr>
-test-unit-client:
+# vim => :map ,c :w\|!clear && make spec-client<cr>
+spec-client:
 	open test/unit/client/SpecRunner.html
 
-.PHONY: cucumber test-performance test-unit-server test-unit-client
+.PHONY: cucumber test-performance spec spec-client

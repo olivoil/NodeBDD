@@ -16,16 +16,16 @@ It uses [cucumber.js](https://github.com/cucumber/cucumber-js) for integration t
     $ make cucumber
 ```
 
-### Run server-side unit tests
+### Run server-side specs
 
 ``` shell
-    $ make test-unit-server
+    $ make spec
 ```
 
-### Run client-side unit tests
+### Run client-side specs
 
 ``` shell
-    $ make test-unit-client
+    $ make spec-client
 ```
 
 ### TODO
