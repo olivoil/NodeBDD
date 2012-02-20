@@ -21,6 +21,6 @@ spec:
 
 # vim => :map ,c :w\|!clear && make spec-client<cr>
 spec-client:
-	open test/unit/client/SpecRunner.html
+	open test/client/SpecRunner.html
 
 .PHONY: cucumber test-performance spec spec-client
