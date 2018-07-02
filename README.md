@@ -1,6 +1,6 @@
 ## Example app showing how to setup a test environment for an express.js application
 
-It uses [cucumber.js](https://github.com/cucumber/cucumber-js) with [zombie.js](http://zombie.labnotes.org/) for integration testing, [mocha](http://visionmedia.github.com/mocha/) with [should.js](https://github.com/visionmedia/should.js) for unit testing on the server side, and [jasmine](http://pivotal.github.com/jasmine/) with [sinon](http://sinonjs.org/) for unit testing on the client side. 
+It uses [cucumber.js](https://github.com/cucumber/cucumber-js) with [zombie.js](http://zombie.labnotes.org/) for integration testing, [mocha](http://visionmedia.github.com/mocha/) with [should.js](https://github.com/visionmedia/should.js) for unit testing on the server side, and [jasmine](https://jasmine.github.io/) with [sinon](http://sinonjs.org/) for unit testing on the client side. 
 
 ### Install
 
